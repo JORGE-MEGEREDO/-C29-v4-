@@ -7,16 +7,16 @@ class CannonBall {
       isStatic: true
     };
     this.r = 40;
-//crie um corpo circular
-//carregue a imagem
+this.body = Bodies.circle(x, y, this.r, options);  //crie um corpo circular
+this.image loadImage("./assets/cannonball.png");  //carregue a imagem
     World.add(world, this.body);
   }
 
   shoot() {
     
-    //defina o ângulo da bala para o canhão
-    //defina valor estático para o corpo
-    //defina a velocidade da bala para fazer a bala se mover
+    var velocity = p5.Vector.fromAngle(cannon.angle); //defina o ângulo da bala para o canhão
+   velocity.mult(20); //defina valor estático para o corpo
+    Matter.Body.setStatic(this.body, false); //defina a velocidade da bala para fazer a bala se mover
   }
 
   display() {
@@ -26,7 +26,7 @@ class CannonBall {
     translate(pos.x, pos.y);
     rotate(angle);
     imageMode(CENTER);
-//mostrar a imagem
+  image(this.image) //mostrar a imagem
     pop();
 
     }
